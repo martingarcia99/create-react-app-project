@@ -1,24 +1,18 @@
 import React, { useState } from 'react'
 import './App.css'
+import { TwitterFollowCard } from './TwitterFollowCard'
 
-function App() {
-
+export function App() {
+  const formatUserName = (username) => `@${username}`
+  
   return (
-    <article>
-        <header>
-          <img src="https://unavatar.io/kikobeats" alt="El avatar de martín" />
-          <div>
-            <strong>Martín García</strong>
-            <span>@martingarcia</span>
-          </div>
-        </header>
-        <aside>
-          <button>
-              Seguir
-          </button>
-        </aside>
-    </article>
+    <section className="App">
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing userName="martingarcia99" name="Martín García"/>
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing={false} userName="midudev" name="Miguel Angel Durán"/>
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing={false} name="Miguel Angel Durán"/>
+    </section>
+    
   )
 }
 
-export default App
+
