@@ -3,13 +3,32 @@ import './App.css'
 import { TwitterFollowCard } from './TwitterFollowCard'
 
 export function App() {
-  const formatUserName = (username) => `@${username}`
+
+  const users = [
+    {
+      userName: 'martingarcia99',
+      name: 'Martín García'
+    },
+    {
+      userName: 'midudev',
+      name: 'Miguel Angel Durán'
+    }
+  ]
   
   return (
     <section className="App">
-      <TwitterFollowCard formatUserName={formatUserName} isFollowing userName="martingarcia99" name="Martín García"/>
-      <TwitterFollowCard formatUserName={formatUserName} isFollowing={false} userName="midudev" name="Miguel Angel Durán"/>
-      <TwitterFollowCard formatUserName={formatUserName} isFollowing={false} name="Miguel Angel Durán"/>
+      {
+        users.map(user => {
+          const {userName, name} = user
+          return (
+            <TwitterFollowCard 
+              key={userName}
+              userName={userName}
+              name={name}
+            />
+          )
+        })
+      }
     </section>
     
   )
